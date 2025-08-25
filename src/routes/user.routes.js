@@ -9,7 +9,7 @@ import { loginUser, logoutUser,
       getWatchHistory} from "../controllers/user.controller.js";
 import {upload} from "../middlewares/multer.middleware.js"
 import { verifyJWT } from "../middlewares/auth.middleware.js";
-import { use } from "react";
+// import { use } from "react";
 
 
 const userRouter= Router()

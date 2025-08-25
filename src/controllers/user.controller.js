@@ -158,8 +158,8 @@ const logoutUser= asyncHandler(async(req,res)=>{
   await User.findByIdAndUpdate(
     req.user._id,
     {
-      $set:{
-        refereshToken :undefined
+      $unset:{
+        refereshToken :1  //this remove fileds from document
       }
     },
     {
@@ -360,7 +360,7 @@ const getUserChannelProfile = asyncHandler(async(req,res)=>{
         from:"subscriptions",
         localField:"_id",
         foreignField:"subscriber",
-        as:"subscriberdTo"
+        as:"subscribedTo"
       }
     },
     {
@@ -386,7 +386,7 @@ const getUserChannelProfile = asyncHandler(async(req,res)=>{
         fullName: 1,
         username:1,
         SubscribersCount:1,
-        channelsSubscribedToCount1,
+        channelsSubscribedToCount:1,
         isSubscribed:1,
         avatar:1,
         coverImage:1,
